@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>One Week in the Philippines · June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #0c2e2f;
+    --ocean: #14545a;
+    --teal: #1d7a83;
+    --aqua: #5fb3b8;
+    --coral: #e8704c;
+    --sunset: #f3a953;
+    --sun: #f7c873;
+    --sand: #f4ead8;
+    --cream: #fbf6ec;
+    --ink: #14201f;
+    --muted: #5a6f6e;
+    --rule: rgba(20, 32, 31, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+
+  /* Image-with-gradient-fallback technique:
+     The placeholder has a CSS gradient + the photo as background-image.
+     If photo loads: photo on top of gradient. If it fails: gradient shows. */
+  .photo {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(12, 46, 47, 0.45) 100%);
+    pointer-events: none;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 28px 24px 36px;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(12, 46, 47, 0.45) 0%, rgba(12, 46, 47, 0.92) 100%),
+      url('https://commons.wikimedia.org/wiki/Special:Filepath/Big_Lagoon,_El_Nido,_Philippines_(36286509873).jpg?width=1600'),
+      linear-gradient(135deg, #1d7a83 0%, #0c2e2f 100%);
+    background-size: cover, cover, cover;
+    background-position: center, center, center;
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-top .tag::before { content: "◐ "; color: var(--sunset); }
+
+  .hero-main { margin-top: auto; position: relative; z-index: 2; }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sunset);
+    margin-bottom: 18px;
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(48px, 13vw, 92px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.3);
+  }
+  .hero-title em { font-style: italic; color: var(--sunset); }
+  .hero-sub {
+    font-size: clamp(15px, 4vw, 18px);
+    opacity: 0.95;
+    max-width: 30ch;
+    margin-bottom: 28px;
+    line-height: 1.55;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+  }
+  .hero-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(244, 234, 216, 0.3);
+    padding-top: 20px;
+  }
+  .hero-meta-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .hero-meta-item strong {
+    display: block;
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-top: 6px;
+    color: var(--sunset);
+  }
+
+  /* ===== INTRO ===== */
+  .intro { padding: 72px 24px; background: var(--cream); }
+  .container { max-width: 720px; margin: 0 auto; }
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 26px;
+    height: 1px;
+    background: var(--coral);
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(32px, 7vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+    color: var(--deep);
+  }
+  h2 em { font-style: italic; color: var(--coral); }
+  h3 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.15;
+    color: var(--deep);
+    margin-bottom: 14px;
+  }
+  p { margin-bottom: 16px; color: var(--ink); }
+  p:last-child { margin-bottom: 0; }
+  .lede {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: clamp(22px, 5vw, 28px);
+    line-height: 1.35;
+    color: var(--deep);
+    margin-bottom: 32px;
+  }
+  .lede em { font-style: italic; color: var(--coral); }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin-top: 40px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat { background: var(--cream); padding: 24px 16px; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    line-height: 1;
+    color: var(--coral);
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ===== ROUTE ===== */
+  .route { background: var(--deep); color: var(--cream); padding: 60px 24px; }
+  .route h2 { color: var(--cream); }
+  .route .eyebrow { color: var(--sunset); }
+  .route .eyebrow::before { background: var(--sunset); }
+  .route-stops { display: flex; flex-direction: column; gap: 0; margin-top: 30px; }
+  .route-stop {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    align-items: center;
+    border-bottom: 1px solid rgba(244, 234, 216, 0.15);
+  }
+  .route-stop:last-child { border-bottom: none; }
+  .route-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--sunset);
+    min-width: 30px;
+  }
+  .route-name { font-family: 'DM Serif Display', serif; font-size: 20px; flex: 1; }
+  .route-detail {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+
+  /* ===== DAYS ===== */
+  .days { background: var(--cream); }
+  .day { border-top: 1px solid var(--rule); }
+  .day-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    overflow: hidden;
+  }
+  .day-img-label {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    z-index: 2;
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: rgba(12, 46, 47, 0.85);
+    padding: 6px 10px;
+    border-radius: 2px;
+  }
+  .day-content { padding: 36px 24px 48px; max-width: 720px; margin: 0 auto; }
+  .day-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 14px;
+  }
+  .day h3 { font-size: clamp(28px, 6vw, 36px); margin-bottom: 18px; }
+  .day h3 em { font-style: italic; color: var(--coral); }
+  .day-summary { font-size: 17px; color: var(--ink); margin-bottom: 24px; }
+
+  .day-acts { display: flex; flex-direction: column; gap: 14px; margin: 24px 0; }
+  .day-act {
+    display: flex;
+    gap: 14px;
+    padding: 14px 16px;
+    background: rgba(20, 84, 90, 0.05);
+    border-left: 3px solid var(--teal);
+    border-radius: 2px;
+  }
+  .day-act-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    min-width: 64px;
+    padding-top: 3px;
+    text-transform: uppercase;
+  }
+  .day-act-body { flex: 1; }
+  .day-act-title { font-weight: 500; font-size: 15px; margin-bottom: 4px; color: var(--deep); }
+  .day-act-desc { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+  .pull {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--coral);
+    padding: 20px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin: 28px 0;
+  }
+
+  /* ===== ALERT ===== */
+  .alert { background: var(--sand); padding: 60px 24px; }
+  .alert h2 em { color: var(--coral); }
+  .alert-list { list-style: none; margin-top: 28px; }
+  .alert-list li {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(20, 32, 31, 0.1);
+    font-size: 15px;
+  }
+  .alert-list li:last-child { border-bottom: none; }
+  .alert-list li strong {
+    display: block;
+    color: var(--deep);
+    margin-bottom: 4px;
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .alert-icon {
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: var(--coral);
+    min-width: 28px;
+    padding-top: 3px;
+  }
+
+  /* ===== BUDGET ===== */
+  .budget { background: var(--deep); color: var(--cream); padding: 60px 24px; }
+  .budget h2 { color: var(--cream); }
+  .budget .eyebrow { color: var(--sunset); }
+  .budget .eyebrow::before { background: var(--sunset); }
+  .budget-rows { margin-top: 32px; border-top: 1px solid rgba(244, 234, 216, 0.18); }
+  .budget-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(244, 234, 216, 0.18);
+    gap: 16px;
+  }
+  .budget-row-label { font-size: 15px; flex: 1; }
+  .budget-row-amt { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--sunset); }
+  .budget-row.total .budget-row-label { font-weight: 700; font-size: 17px; }
+  .budget-row.total .budget-row-amt { font-size: 32px; color: var(--cream); }
+  .budget-note { font-size: 13px; opacity: 0.7; margin-top: 18px; font-style: italic; }
+
+  /* ===== PHOTOS PROMISE ===== */
+  .promise { padding: 72px 24px; background: var(--cream); }
+  .promise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .promise-item {
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .promise-item-label {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    z-index: 2;
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.7);
+  }
+
+  /* ===== CLOSER ===== */
+  .closer { background: var(--coral); color: var(--cream); padding: 80px 24px; text-align: center; }
+  .closer h2 { color: var(--cream); font-size: clamp(36px, 9vw, 64px); margin-bottom: 24px; }
+  .closer h2 em { color: var(--deep); }
+  .closer p { color: var(--cream); font-size: 18px; max-width: 480px; margin: 0 auto 8px; opacity: 0.95; }
+  .closer-sig { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 22px; margin-top: 32px; opacity: 0.95; }
+
+  footer {
+    background: var(--deep);
+    color: rgba(244, 234, 216, 0.55);
+    padding: 24px;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: 720px) {
+    .stats { grid-template-columns: repeat(4, 1fr); }
+    .promise-grid { grid-template-columns: repeat(4, 1fr); }
+    .day { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+    .day:nth-child(even) .day-img { order: 2; }
+    .day-img { aspect-ratio: auto; min-height: 100%; }
+    .day-content { padding: 60px 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-top">
+    <span class="tag">A trip pitch</span>
+    <span>For: my favorite person</span>
+  </div>
+
+  <div class="hero-main">
+    <div class="hero-eyebrow">First week of June, 2026</div>
+    <h1 class="hero-title">Seven days,<br>two islands,<br>one <em>unreal</em> trip.</h1>
+    <p class="hero-sub">Whale sharks, slot canyons, sardine tornados, and lagoons that don't look real. Hear me out.</p>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">From<strong>Cebu City</strong></div>
+      <div class="hero-meta-item">To<strong>El Nido, Palawan</strong></div>
+      <div class="hero-meta-item">Length<strong>7 days</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INTRO ===== -->
+<section class="intro">
+  <div class="container">
+    <div class="eyebrow">The pitch</div>
+    <h2>A week that doesn't <em>feel</em> like a week.</h2>
+    <p class="lede">We start in southern Cebu where you swim with whale sharks, then slide down a turquoise canyon to a waterfall, then float inside a tornado of <em>millions</em> of sardines.</p>
+    <p>From there we fly to Palawan, where the limestone cliffs of El Nido rise straight out of the sea and we kayak into hidden lagoons. Two distinct vibes — adventure first half, postcard second half.</p>
+    <p>Real talk: it's the first week of the wet season. We'll get afternoon rain a few days. Mornings are usually clear and that's when we'll be doing the big stuff anyway. Trip cost works out to roughly $2,500–3,500 per person all-in.</p>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-num">7</div><div class="stat-label">Days on the ground</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">Once-in-a-lifetime moments</div></div>
+      <div class="stat"><div class="stat-num">2</div><div class="stat-label">Islands</div></div>
+      <div class="stat"><div class="stat-num">86°F</div><div class="stat-label">Average sea temp</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROUTE ===== -->
+<section class="route">
+  <div class="container">
+    <div class="eyebrow">The route</div>
+    <h2>The map, in five lines.</h2>
+    <div class="route-stops">
+      <div class="route-stop"><span class="route-num">01</span><span class="route-name">Cebu City → Moalboal</span><span class="route-detail">3hr drive south</span></div>
+      <div class="route-stop"><span class="route-num">02</span><span class="route-name">Moalboal → Oslob → Moalboal</span><span class="route-detail">Whale shark day</span></div>
+      <div class="route-stop"><span class="route-num">03</span><span class="route-name">Moalboal → Kawasan → Moalboal</span><span class="route-detail">Sardines + canyon</span></div>
+      <div class="route-stop"><span class="route-num">04</span><span class="route-name">Cebu → El Nido</span><span class="route-detail">1.5hr direct flight</span></div>
+      <div class="route-stop"><span class="route-num">05</span><span class="route-name">El Nido → Manila → home</span><span class="route-detail">Final morning</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DAYS ===== -->
+<section class="days">
+
+  <article class="day">
+    <div class="day-img photo" style="background-image: linear-gradient(135deg, rgba(243, 169, 83, 0.3), rgba(232, 112, 76, 0.5)), url('https://commons.wikimedia.org/wiki/Special:Filepath/Panagsama_Beach_Moalboal_Cebu_Sunset.jpg?width=1200'), linear-gradient(135deg, #f3a953, #e8704c, #1d7a83);">
+      <span class="day-img-label">Cebu / Arrival</span>
+    </div>
+    <div class="day-content">
+      <div class="day-num">Day 01 · Sunday</div>
+      <h3>Land in <em>Cebu</em>, drive south to Moalboal.</h3>
+      <p class="day-summary">A travel day, but a beautiful one. You'll be jetlagged. We crash early because tomorrow is a 5am start.</p>
+      <div class="day-acts">
+        <div class="day-act"><div class="day-act-time">PM</div><div class="day-act-body"><div class="day-act-title">Land at Mactan-Cebu International (CEB)</div><div class="day-act-desc">Pre-arranged van picks us up directly from arrivals. Skip the chaos.</div></div></div>
+        <div class="day-act"><div class="day-act-time">PM</div><div class="day-act-body"><div class="day-act-title">3-hour drive to Moalboal</div><div class="day-act-desc">South coast highway, beach views the whole way. Stop for halo-halo (Filipino shaved ice) at any roadside spot.</div></div></div>
+        <div class="day-act"><div class="day-act-time">DUSK</div><div class="day-act-body"><div class="day-act-title">Dinner at Panagsama Beach</div><div class="day-act-desc">The Three Bears or Lantaw Native Restaurant. Then bed by 9pm.</div></div></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="day-img photo" style="background-image: linear-gradient(180deg, transparent 60%, rgba(12, 46, 47, 0.4)), url('https://commons.wikimedia.org/wiki/Special:Filepath/Cebu_Whale-shark_Watching.jpg?width=1200'), linear-gradient(135deg, #1d7a83, #0c2e2f);">
+      <span class="day-img-label">Oslob / Whale sharks</span>
+    </div>
+    <div class="day-content">
+      <div class="day-num">Day 02 · Monday</div>
+      <h3>Swimming with <em>whale sharks</em> at sunrise.</h3>
+      <p class="day-summary">5am alarm. We catch the very first slot at 6am — calmer water, half the crowd, better light. Then a perfect waterfall on the drive home.</p>
+      <div class="day-acts">
+        <div class="day-act"><div class="day-act-time">5:00 AM</div><div class="day-act-body"><div class="day-act-title">Drive Moalboal → Oslob (1hr)</div><div class="day-act-desc">Pre-booked tour, all gear included.</div></div></div>
+        <div class="day-act"><div class="day-act-time">6:00 AM</div><div class="day-act-body"><div class="day-act-title">Whale shark snorkel — first slot</div><div class="day-act-desc">30 minutes in the water with 25–30ft gentle giants. They're filter feeders, completely harmless.</div></div></div>
+        <div class="day-act"><div class="day-act-time">8:30 AM</div><div class="day-act-body"><div class="day-act-title">Tumalog Falls</div><div class="day-act-desc">5 minutes from Oslob. Misty curtain falls with morning sunbeams piercing through.</div></div></div>
+        <div class="day-act"><div class="day-act-time">PM</div><div class="day-act-body"><div class="day-act-title">Back to Moalboal · pool · nap</div><div class="day-act-desc">You will earn this nap.</div></div></div>
+      </div>
+      <p class="pull">"You'll come up after that first whale shark pass and just be laughing. There's no other reaction."</p>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="day-img photo" style="background-image: linear-gradient(180deg, transparent 60%, rgba(12, 46, 47, 0.4)), url('https://commons.wikimedia.org/wiki/Special:Filepath/Kawasan_falls.jpg?width=1200'), linear-gradient(135deg, #1d7a83, #0c2e2f);">
+      <span class="day-img-label">Kawasan / Adventure</span>
+    </div>
+    <div class="day-content">
+      <div class="day-num">Day 03 · Tuesday</div>
+      <h3>Sardines, then <em>canyoneering</em>.</h3>
+      <p class="day-summary">Two of the wildest things you can do in the country, both in one day. Morning underwater, afternoon airborne.</p>
+      <div class="day-acts">
+        <div class="day-act"><div class="day-act-time">7:00 AM</div><div class="day-act-body"><div class="day-act-title">Sardine Run — walk-in from Panagsama Beach</div><div class="day-act-desc">Snorkel 5 minutes off the beach and you're inside a moving wall of millions of sardines. Year-round, no boat needed, basically free.</div></div></div>
+        <div class="day-act"><div class="day-act-time">11:00 AM</div><div class="day-act-body"><div class="day-act-title">Drive to Badian, lunch</div><div class="day-act-desc">30-minute drive south.</div></div></div>
+        <div class="day-act"><div class="day-act-time">1:00 PM</div><div class="day-act-body"><div class="day-act-title">Kawasan Canyoneering</div><div class="day-act-desc">3-4 hours sliding, jumping, and floating down a turquoise slot canyon to Kawasan Falls. Cliff jumps from 3-15m, all optional. Helmets and life vests provided.</div></div></div>
+        <div class="day-act"><div class="day-act-time">7:00 PM</div><div class="day-act-body"><div class="day-act-title">Big dinner at Ven'z Kitchen</div><div class="day-act-desc">Tiny family-run place in Moalboal. Kinilaw (Filipino ceviche) and grilled tuna belly.</div></div></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="day-img photo" style="background-image: linear-gradient(180deg, transparent 60%, rgba(12, 46, 47, 0.4)), url('https://commons.wikimedia.org/wiki/Special:Filepath/2014_11_Moalboal_21_sardine_run_(16024303526).jpg?width=1200'), linear-gradient(135deg, #1d7a83, #0c2e2f);">
+      <span class="day-img-label">Cebu → Palawan</span>
+    </div>
+    <div class="day-content">
+      <div class="day-num">Day 04 · Wednesday</div>
+      <h3>Turtles, then a <em>flight</em> to paradise.</h3>
+      <p class="day-summary">A slower morning, then we transit to El Nido. Sunset on the beach to mark the halfway point.</p>
+      <div class="day-acts">
+        <div class="day-act"><div class="day-act-time">8:00 AM</div><div class="day-act-body"><div class="day-act-title">Sea turtle snorkel</div><div class="day-act-desc">Same beach as the sardines. Green sea turtles graze on seagrass 10 feet from shore.</div></div></div>
+        <div class="day-act"><div class="day-act-time">11:00 AM</div><div class="day-act-body"><div class="day-act-title">Drive back to Cebu City</div><div class="day-act-desc">3 hours, lunch on the way.</div></div></div>
+        <div class="day-act"><div class="day-act-time">4:00 PM</div><div class="day-act-body"><div class="day-act-title">AirSwift flight Cebu → El Nido</div><div class="day-act-desc">Direct, ~1.5 hours. Books up early — reserve as soon as the trip is locked.</div></div></div>
+        <div class="day-act"><div class="day-act-time">SUNSET</div><div class="day-act-body"><div class="day-act-title">Las Cabanas Beach</div><div class="day-act-desc">Local San Miguel beer in your hand, the Bacuit cliffs glowing pink. Halfway point celebration.</div></div></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="day-img photo" style="background-image: linear-gradient(180deg, transparent 60%, rgba(12, 46, 47, 0.4)), url('https://commons.wikimedia.org/wiki/Special:Filepath/Big_Lagoon_at_El_Nido,_Palawan,_Philippines.jpg?width=1200'), linear-gradient(135deg, #5fb3b8, #1d7a83);">
+      <span class="day-img-label">El Nido / Tour A</span>
+    </div>
+    <div class="day-content">
+      <div class="day-num">Day 05 · Thursday</div>
+      <h3>El Nido <em>Tour A</em> — the lagoons.</h3>
+      <p class="day-summary">The day that lives in your phone forever. Big Lagoon, Small Lagoon, Secret Lagoon — three completely different versions of impossible.</p>
+      <div class="day-acts">
+        <div class="day-act"><div class="day-act-time">9:00 AM</div><div class="day-act-body"><div class="day-act-title">Big Lagoon</div><div class="day-act-desc">Kayak between 100m limestone cliffs in water so clear the kayak looks like it's floating in air. The shot you've seen in every Philippines travel ad.</div></div></div>
+        <div class="day-act"><div class="day-act-time">11:00 AM</div><div class="day-act-body"><div class="day-act-title">Small Lagoon + Secret Lagoon</div><div class="day-act-desc">Swim through narrow rock openings into hidden coves. Secret Lagoon means you actually crawl through a hole in the rock.</div></div></div>
+        <div class="day-act"><div class="day-act-time">1:00 PM</div><div class="day-act-body"><div class="day-act-title">Boat lunch at Shimizu Island</div><div class="day-act-desc">Grilled fish, mango, rice, on a beach that doesn't have a name on Google Maps.</div></div></div>
+        <div class="day-act"><div class="day-act-time">3:00 PM</div><div class="day-act-body"><div class="day-act-title">7 Commandos Beach + snorkel</div><div class="day-act-desc">Final stop. Coconut hammocks, snorkel reef, sunset back to El Nido town.</div></div></div>
+      </div>
+      <p class="pull">"There's a moment in Big Lagoon where you stop paddling and just stare up. Don't film. Don't post. Just look."</p>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="day-img photo" style="background-image: linear-gradient(180deg, transparent 60%, rgba(12, 46, 47, 0.4)), url('https://commons.wikimedia.org/wiki/Special:Filepath/Big_Lagoon,_El_Nido,_Philippines_(36266660904).jpg?width=1200'), linear-gradient(135deg, #5fb3b8, #1d7a83);">
+      <span class="day-img-label">El Nido / Tour C</span>
+    </div>
+    <div class="day-content">
+      <div class="day-num">Day 06 · Friday</div>
+      <h3>The <em>secret</em> beaches.</h3>
+      <p class="day-summary">Tour C goes harder than Tour A — fewer crowds, wilder snorkeling, the iconic "squeeze through the rock to find a hidden beach" moments. The most photogenic day of the trip.</p>
+      <div class="day-acts">
+        <div class="day-act"><div class="day-act-time">9:00 AM</div><div class="day-act-body"><div class="day-act-title">Helicopter Island</div><div class="day-act-desc">Named for its shape. Long white-sand beach, crystal water, basically empty.</div></div></div>
+        <div class="day-act"><div class="day-act-time">11:00 AM</div><div class="day-act-body"><div class="day-act-title">Hidden Beach</div><div class="day-act-desc">A horseshoe of sand completely enclosed by 80m cliffs. You wade through a slot in the rock to find it. Surreal.</div></div></div>
+        <div class="day-act"><div class="day-act-time">1:00 PM</div><div class="day-act-body"><div class="day-act-title">Matinloc Shrine viewpoint</div><div class="day-act-desc">Climb 5 minutes up jagged limestone for the best view in El Nido. Bring shoes, the rock is sharp.</div></div></div>
+        <div class="day-act"><div class="day-act-time">3:00 PM</div><div class="day-act-body"><div class="day-act-title">Secret Beach</div><div class="day-act-desc">Another hidden cove. Snorkel through a tunnel in the rock, emerge into a beach you can only reach by swimming.</div></div></div>
+        <div class="day-act"><div class="day-act-time">DUSK</div><div class="day-act-body"><div class="day-act-title">Sunset cocktails at The Birdhouse</div><div class="day-act-desc">Treehouse-style bar above Marimegmeg Beach. Last full night.</div></div></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="day">
+    <div class="day-img photo" style="background-image: linear-gradient(180deg, transparent 60%, rgba(12, 46, 47, 0.4)), url('https://commons.wikimedia.org/wiki/Special:Filepath/Big_Lagoon,_El_Nido,_Philippines_(36286517663).jpg?width=1200'), linear-gradient(135deg, #f7c873, #e8704c, #0c2e2f);">
+      <span class="day-img-label">Going home</span>
+    </div>
+    <div class="day-content">
+      <div class="day-num">Day 07 · Saturday</div>
+      <h3>One last <em>swim</em>, then home.</h3>
+      <p class="day-summary">Sleep in. Coffee on the beach. One more dip. Fly out by mid-afternoon.</p>
+      <div class="day-acts">
+        <div class="day-act"><div class="day-act-time">8:00 AM</div><div class="day-act-body"><div class="day-act-title">Coffee + breakfast at Las Cabanas</div><div class="day-act-desc">Avocado toast and watermelon juice with feet in the sand.</div></div></div>
+        <div class="day-act"><div class="day-act-time">10:00 AM</div><div class="day-act-body"><div class="day-act-title">One last swim</div><div class="day-act-desc">Right off the beach. Take the moment in.</div></div></div>
+        <div class="day-act"><div class="day-act-time">2:00 PM</div><div class="day-act-body"><div class="day-act-title">Fly El Nido → Manila → home</div><div class="day-act-desc">AirSwift back to Manila, connect onward.</div></div></div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ===== ALERT ===== -->
+<section class="alert">
+  <div class="container">
+    <div class="eyebrow">Real talk · weather + logistics</div>
+    <h2>Things you should know about <em>June</em>.</h2>
+    <p>I checked all of this. June is technically the start of the wet season, but it's not a deal-breaker — you just have to plan around it.</p>
+    <ul class="alert-list">
+      <li><span class="alert-icon">01</span><div><strong>Cebu in June: ~14 rainy days</strong>Mostly afternoon showers. Mornings are usually clear, which is when we'll be doing whale sharks, sardines, and canyoneering anyway. Sea is 86°F, the warmest of the year.</div></li>
+      <li><span class="alert-icon">02</span><div><strong>Kawasan can close after heavy rain</strong>The slot canyon floods if it rained hard the night before. Operators monitor it daily. We build a "rain day" buffer into the schedule and check the official Badian MDRRMO Facebook page each morning.</div></li>
+      <li><span class="alert-icon">03</span><div><strong>Kawasan now requires advance booking</strong>New "no booking, no entry" policy as of 2026. We book through an accredited operator who handles all permits.</div></li>
+      <li><span class="alert-icon">04</span><div><strong>El Nido Tours run mornings, rain or shine</strong>Boats go out in the AM almost every day. Even if afternoons get wet, the lagoons are unaffected.</div></li>
+      <li><span class="alert-icon">05</span><div><strong>Pack: dry bag, rain jacket, reef-safe sunscreen</strong>Skip a hard suitcase, bring a duffle. Reef shoes are useful for canyoneering (rentable on-site for ~$3 if you don't want to carry them).</div></li>
+      <li><span class="alert-icon">06</span><div><strong>AirSwift flights book up</strong>Cebu → El Nido is the direct option but only AirSwift flies it, ~2 flights/day. Lock in seats as soon as we commit to dates.</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== BUDGET ===== -->
+<section class="budget">
+  <div class="container">
+    <div class="eyebrow">The numbers, honest</div>
+    <h2>Roughly <em>$2,800</em> per person.</h2>
+    <p>Mid-range, not backpacker, not luxury. Real numbers, not aspirational ones.</p>
+
+    <div class="budget-rows">
+      <div class="budget-row"><div class="budget-row-label">Round-trip flights from Dallas</div><div class="budget-row-amt">~$1,300</div></div>
+      <div class="budget-row"><div class="budget-row-label">Internal flight (Cebu → El Nido)</div><div class="budget-row-amt">~$180</div></div>
+      <div class="budget-row"><div class="budget-row-label">Lodging — 6 nights, mid-range</div><div class="budget-row-amt">~$600</div></div>
+      <div class="budget-row"><div class="budget-row-label">Tours (whale shark, canyoneering, Tour A, Tour C)</div><div class="budget-row-amt">~$220</div></div>
+      <div class="budget-row"><div class="budget-row-label">Food, drinks, transport, tips</div><div class="budget-row-amt">~$400</div></div>
+      <div class="budget-row"><div class="budget-row-label">Buffer (because something always)</div><div class="budget-row-amt">~$100</div></div>
+      <div class="budget-row total"><div class="budget-row-label">Total per person</div><div class="budget-row-amt">$2,800</div></div>
+    </div>
+    <p class="budget-note">Couples can shave ~$300 each by sharing rooms and tours. Flights from Dallas vary a lot — checking 8+ weeks out usually wins.</p>
+  </div>
+</section>
+
+<!-- ===== PHOTOS PROMISE ===== -->
+<section class="promise">
+  <div class="container">
+    <div class="eyebrow">The shots you'll come home with</div>
+    <h2>Here's your <em>camera roll</em>, basically.</h2>
+    <p>Each day delivers a different signature shot. By the end of the week the camera roll tells a whole story.</p>
+
+    <div class="promise-grid">
+      <div class="promise-item photo" style="background-image: url('https://commons.wikimedia.org/wiki/Special:Filepath/Cebu_Whale-shark_Watching.jpg?width=600'), linear-gradient(135deg, #1d7a83, #0c2e2f);">
+        <div class="promise-item-label">Whale shark</div>
+      </div>
+      <div class="promise-item photo" style="background-image: url('https://commons.wikimedia.org/wiki/Special:Filepath/A_Place_for_Adventure_in_Oslob.jpg?width=600'), linear-gradient(135deg, #14545a, #0c2e2f);">
+        <div class="promise-item-label">Oslob morning</div>
+      </div>
+      <div class="promise-item photo" style="background-image: url('https://commons.wikimedia.org/wiki/Special:Filepath/2014_11_Moalboal_21_sardine_run_(16024303526).jpg?width=600'), linear-gradient(135deg, #1d7a83, #0c2e2f);">
+        <div class="promise-item-label">Sardine run</div>
+      </div>
+      <div class="promise-item photo" style="background-image: url('https://commons.wikimedia.org/wiki/Special:Filepath/2014_11_Moalboal_15_Sardine_1_S_(15864306517).jpg?width=600'), linear-gradient(135deg, #14545a, #1d7a83);">
+        <div class="promise-item-label">Inside the school</div>
+      </div>
+      <div class="promise-item photo" style="background-image: url('https://commons.wikimedia.org/wiki/Special:Filepath/Kawasan_falls.jpg?width=600'), linear-gradient(135deg, #1d7a83, #14545a);">
+        <div class="promise-item-label">Kawasan Falls</div>
+      </div>
+      <div class="promise-item photo" style="background-image: url('https://commons.wikimedia.org/wiki/Special:Filepath/Badian_Kawasan_Falls_Cebu.jpg?width=600'), linear-gradient(135deg, #14545a, #1d7a83);">
+        <div class="promise-item-label">Slot canyon</div>
+      </div>
+      <div class="promise-item photo" style="background-image: url('https://commons.wikimedia.org/wiki/Special:Filepath/Big_Lagoon_at_El_Nido,_Palawan,_Philippines.jpg?width=600'), linear-gradient(135deg, #5fb3b8, #1d7a83);">
+        <div class="promise-item-label">Big Lagoon</div>
+      </div>
+      <div class="promise-item photo" style="background-image: url('https://commons.wikimedia.org/wiki/Special:Filepath/Big_Lagoon,_El_Nido,_Philippines_(36286509873).jpg?width=600'), linear-gradient(135deg, #5fb3b8, #1d7a83);">
+        <div class="promise-item-label">El Nido cliffs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLOSER ===== -->
+<section class="closer">
+  <h2>So... <em>let's go?</em></h2>
+  <p>Whale sharks. Canyons. Lagoons. Hidden beaches. One absurd week.</p>
+  <p>Pick the dates. I'll book the rest.</p>
+  <div class="closer-sig">— me ♡</div>
+</section>
+
+<footer>
+  Itinerary · First week of June 2026 · Subject to change with weather
+</footer>
+
+</body>
+</html>
